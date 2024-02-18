@@ -33,7 +33,10 @@ import { Label } from "@/components/ui/label"
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
-const groups = ["eurofederalisty", "příznivce EU", "vlažné příznivce", "nejisté", "odpůrce EU", "radikální odpůrce"]
+import { usePostMessageWithHeight } from './hooks/usePostHeightMessage'
+
+
+const groups = ["euronadšence", "příznivce", "vlažné příznivce", "nejisté", "odpůrce", "skalní odpůrce"]
 
 const calculateResult = function (result: number[]) {
   const prumEU = (result[0] + result[1] + result[2] + result[4]) / 4;
@@ -64,6 +67,13 @@ function App() {
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
 
+  const { containerRef, postHeightMessage } = usePostMessageWithHeight(`rozdeleni-evropou-kalkulacka`);
+
+  useEffect(() => {
+    postHeightMessage();
+  }, [current]);
+
+
   useEffect(() => {
     if (!api) {
       return
@@ -79,13 +89,13 @@ function App() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center" ref={containerRef}>
       <Progress
         className="w-full max-w-md h-2 mb-3 "
         value={current / count * 100}
       />
 
-      <Carousel setApi={setApi} className="w-full max-w-md">
+      <Carousel setApi={setApi} className="w-full ">
         <CarouselContent>
           {questions.map((_, index) => (
             <CarouselItem className="" key={index}>
