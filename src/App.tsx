@@ -95,7 +95,7 @@ function App() {
         value={current / count * 100}
       />
 
-      <Carousel setApi={setApi} className="w-full ">
+      <Carousel setApi={setApi} className="w-full max-w-md">
         <CarouselContent>
           {questions.map((_, index) => (
             <CarouselItem className="" key={index}>
