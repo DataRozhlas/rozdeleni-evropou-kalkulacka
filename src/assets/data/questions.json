@@ -1,6 +1,6 @@
 [
     {
-        "q": "Jste Vy osobně celkově spokojen(a) s naším členstvím v Evropské unii?",
+        "q": "Jste vy osobně celkově spokojen(a) s naším členstvím v Evropské unii?",
         "a": [
             "Určitě ano",
             "Spíše ano",
@@ -9,7 +9,7 @@
         ]
     },
     {
-        "q": "Cítíte Vy osobně sounáležitost s Evropou, cítíte se být Evropanem?",
+        "q": "Cítíte vy osobně sounáležitost s Evropou, cítíte se být Evropanem?",
         "a": [
             "Určitě ano",
             "Spíše ano",
@@ -36,7 +36,7 @@
         ]
     },
     {
-        "q": "Představte si, že by se u nás konalo referendum o VYSTOUPENÍ z EU, hlasoval(a) byste pro možnost zůstat, nebo pro odejít?",
+        "q": "Představte si, že by se u nás konalo referendum o vystoupení z EU. Hlasoval(a) byste pro možnost zůstat, nebo pro odejít?",
         "a": [
             "Určitě \"zůstat\"",
             "Spíše \"zůstat\"",
@@ -45,7 +45,7 @@
         ]
     },
     {
-        "q": "Zamyslíte-li se nad vývojem u nás v posledních více než třiceti letech, tj. od listopadu 1989, pociťujete Vy osobně:",
+        "q": "Zamyslíte-li se nad vývojem u nás v posledních více než třiceti letech, tj. od listopadu 1989, pociťujete vy osobně:",
         "a": [
             "Velmi výrazné uspokojení",
             "Dostatečné uspokojení",
