@@ -20,9 +20,6 @@ import {
 
 import MiniChart from './components/MiniChart';
 
-
-import { Button } from "@/components/ui/button"
-
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -108,8 +105,8 @@ function App() {
         <CarouselContent >
           {questions.map((question, index) => (
             <CarouselItem className="" key={index}>
-              <Card>
-                <CardContent className="flex flex-col aspect-[4/3] items-center justify-start p-6">
+              <Card className="h-full">
+                <CardContent className="flex flex-col aspect-[378/305.533] items-center justify-start p-6">
                   <span className="text-xl font-semibold">{question.q}</span>
                   <Separator className="my-4" />
                   <RadioGroup onValueChange={(e) => { setSelectedAnswer(question.a.indexOf(e) + 1); setResults(oldResults => { const newResults = oldResults; newResults[index] = question.a.indexOf(e) + 1; return newResults }) }}
@@ -125,15 +122,15 @@ function App() {
               </Card>
             </CarouselItem>
           ))}          <CarouselItem>
-            <Card>
-              {results.some(item => item == 0) && <CardContent className="flex flex-col aspect-[4/3] items-center justify-center p-6">
+            <Card className="h-full">
+              {results.some(item => item == 0) && <CardContent className="aspect-[378/305.533] flex flex-col items-center justify-start p-6">
                 <span className="text-xl font-semibold">Až odpovíte na všechny otázky, uvidíte zde výsledek. Ještě jste neodpověděli:</span>
                 <Separator className="my-4" />
-                {questions.map((_, index) => results[index] == 0 && <li key={crypto.randomUUID()}><Button className="h-0 py-0" variant="link" onClick={() => api?.scrollTo(index)}><div className="max-w-xs truncate">{_.q}</div></Button></li>)}
+                {questions.map((_, index) => results[index] == 0 && <span key={crypto.randomUUID()} className="w-full max-w-[550px] truncate underline cursor-pointer" onClick={() => api?.scrollTo(index)}>{_.q}</span>)}
               </CardContent>}
-              {results.every(item => item > 0) && <CardContent className="flex flex-col aspect-[4/3] items-center justify-center p-6">
+              {results.every(item => item > 0) && <CardContent className="aspect-[378/305.533] flex flex-col items-center justify-center p-6">
                 <span className="text-xl font-semibold">Patříte mezi {groups[calculateResult(results) - 1]}</span>
-                <img className="max-w-[550px]" src={images[calculateResult(results) - 1]}></img>
+                <img className="w-full" src={images[calculateResult(results) - 1]}></img>
               </CardContent>}
             </Card>
           </CarouselItem>
@@ -145,7 +142,7 @@ function App() {
         <div className="text-md font-bold py-8 text-center">Kdo odpovídal stejně jako vy?</div>
         <div className="grid grid-cols-2 gap-2 ">
           <HighchartsProvider Highcharts={Highcharts}>
-            {charts.map((_, index) => <MiniChart key={crypto.randomUUID()} title={_.title} categories={_.categories} start={_.start} end={_.end} selectedAnswer={selectedAnswer} current={current} index={index}/>)}
+            {charts.map((_, index) => <MiniChart key={crypto.randomUUID()} title={_.title} categories={_.categories} start={_.start} end={_.end} selectedAnswer={selectedAnswer} current={current} index={index} />)}
           </HighchartsProvider>
         </div>
       </div>}
